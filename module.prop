@@ -1,0 +1,8 @@
+id=playitgg4android
+name=Playit.gg4Android
+version=1.0
+versionCode=1
+author=Your Name
+description=Magisk module for Playit.gg on Android with Ubuntu base
+support=sdk21
+minMagisk=2200
