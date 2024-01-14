@@ -1,0 +1,4 @@
+#!/system/bin/sh
+
+# Run bash in chrooted environment
+busybox chroot /data/local/playit /bin/bash

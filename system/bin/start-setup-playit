@@ -1,0 +1,15 @@
+#!/system/bin/sh
+
+# Check if Playit is already installed
+if [ -e "/data/local/playit/bin/playit" ]; then
+  echo "Playit is already installed in /data/local/playit/bin/playit"
+else
+  # Add repository and install Playit
+  busybox chroot /data/local/playit /bin/bash -c 'sudo apt update'
+  busybox chroot /data/local/playit /bin/bash -c 'sudo apt install -y wget curl'
+  busybox chroot /data/local/playit /bin/bash -c 'curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/playit.gpg >/dev/null'
+  busybox chroot /data/local/playit /bin/bash -c 'echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./" | sudo tee /etc/apt/sources.list.d/playit-cloud.list'
+  busybox chroot /data/local/playit /bin/bash -c 'sudo apt update'
+  busybox chroot /data/local/playit /bin/bash -c 'sudo apt install playit'
+  echo "Now you can run start-playit."
+fi

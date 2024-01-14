@@ -1,0 +1,4 @@
+#!/system/bin/sh
+
+# Execute playit binary
+chroot /data/local/playit /bin/bash -c '/bin/bash /bin/playit'
